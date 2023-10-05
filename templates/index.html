@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Movie App</title>
+</head>
+<body>
+    <div class="header">
+        <div class="navbar">
+            <div class="logo">Best Movies</div>
+            <div class="navlinks">
+                <a href="#">Movies</a>
+                <a href="#">TV Shows</a>
+                <a href="#">Documentaries</a>
+            </div>
+            <div class="scearchbar">
+                <label for="searchs">Search:</label>
+                <input type="search" name="searchs" id="searchs">
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        {% for movie in contents%}
+            <div class="movie-card">
+                <div class="movie-img">
+                    <img src="{{movie['Movie Image']}}" alt="movie image">
+                </div>
+                <div class="movie-details">
+                    <p>{{movie['Movie Description']}}</p>
+                    <p>{{movie['Movie Age Rate']}}</p>
+                    <p>{{movie['Movie Duration']}}</p>
+                    <p>{{movie['Movie Genres']}}</p>
+                    <p>{{movie['Movie Directors']}}</p>
+                    <p>{{movie['Movie Stars']}}</p>
+                    <p>{{movie['Movie Rate']}}</p>
+                </div>
+                <div class="movie-title">
+                    <p>{{movie['Movie Name']}}</p>
+                </div>
+            </div>
+        
+        {% endfor %}
+    </div>
+</body>
+</html>
